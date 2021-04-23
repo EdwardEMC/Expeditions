@@ -1,6 +1,7 @@
+import {changeSkybox} from '/assets/webxr/webxr_basic.js';
+
 const exit = document.getElementById("exit");
 const upload = document.getElementById("upload");
-const vrSource = document.getElementById("vr_source");
 const share = document.getElementById("share_code");
 const saved_guide = JSON.parse(localStorage.getItem("Guide")); //saved guide which doubles as the share code
 
@@ -24,10 +25,11 @@ function openFile(e) {
     return function(e) {
         console.log(this.result);
         let dataURL = reader.result;
-        vrSource.src = dataURL;
         let bytes = this.result.replace(/.*base64,/, '');
         console.log(bytes, "BYTES");
         sendFile(bytes);
+        //function from webxr_basics
+        changeSkybox(dataURL);
     };
   })(file);
   reader.readAsDataURL(file);

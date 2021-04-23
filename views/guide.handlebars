@@ -3,9 +3,6 @@
   <br>
   <br>
   <input id='upload' type='file' accept='image/*'>
-  <br>
-  <br>
-  <image id="vr_source" src="" alt="current_scene"></image>
 </div>
 
 <div id="vr_button"></div>
@@ -41,8 +38,8 @@
 <link rel="stylesheet" href="assets/css/XRstyle.css">
 
 <!--GUIDE SCRIPT-->
-<script src="assets/js/guide.js"></script>
+<script type="module" src="assets/js/guide.js"></script>
 
 <!--SOCKET SCRIPTS-->
 <script src="/socket.io/socket.io.js"></script>
-<script src="assets/js/socketManagement.js"></script>
+<script src="assets/sockets/socketGuide.js"></script>

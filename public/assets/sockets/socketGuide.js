@@ -3,19 +3,14 @@ const users = document.getElementById("users");
 const guide = JSON.parse(localStorage.getItem("Guide"));
 let socket = io();
 let connected = false;
-let isGuide = false;
 
 // On log in connect socket (only once)
 if(!connected) {
-    if(window.location.pathname === "/Guide") {
-        isGuide = true;
-    }
-
     socket = io.connect({
         query: {
             room: guide.room, 
             peer: guide.peer,
-            isGuide: isGuide
+            isGuide: true
         }
     });
 
@@ -28,15 +23,6 @@ socket.on("update-user-list", data => {
 
 socket.on('user-disconnected', data => {
     updateUserList(data);
-});
-
-socket.on("exit", () => {
-    location.href = "/";
-});
-
-socket.on('image', image => {
-    //add the image to the vr_source
-    document.getElementById("vr_source").src = `data:image/jpg;base64,${image}`; 
 });
 
 function updateUserList(data) {

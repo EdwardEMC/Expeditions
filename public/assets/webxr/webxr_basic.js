@@ -30,3 +30,23 @@ app.scene.addNode(new SkyboxNode({
 
 // Start the XR application.
 app.run();
+
+//Changing the skybox
+export function changeSkybox(source) {
+  let skies = [];
+  let nodes = app.scene.children;
+
+  //add a new skybox before deleteing the old one to save screen tear
+  let staticSkybox = new SkyboxNode({
+    url: source
+  });
+
+  app.scene.addNode(staticSkybox);
+
+  //delete the oldest skybox
+  nodes.forEach(node => {
+    if(node.name === "Skybox") skies.push(node);
+  });
+  
+  if(skies.length>1) app.scene.removeNode(skies[0]);
+}
