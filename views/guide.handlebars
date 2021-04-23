@@ -10,6 +10,32 @@
 
 <div id="vr_button"></div>
 
+<button id="exit" type="button" class="btn btn-outline-warning">Exit</button>
+
+<!-- Button trigger user modal -->
+<div id="connected_peers">
+  <span id="num_connected">0</span>
+  <button id="connected" type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Open</button>  
+</div>
+
+
+<!-- User Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Guide: <span id="current_guide"></span></h5>
+        <button type="button" class="close btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="users" class="modal-body">
+        {{!-- area to append connected users --}}
+      </div>
+    </div>
+  </div>
+</div>
+
 <!--WEBXR CONTENT-->
 <script type="module" src="assets/webxr/webxr_basic.js"></script>
 <link rel="stylesheet" href="assets/css/XRstyle.css">

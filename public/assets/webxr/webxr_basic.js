@@ -23,6 +23,7 @@ imgOptions.onclick = function() { app.toggleOptions() };
 document.body.append(imgFull, imgOptions);
 document.getElementById('vr_button').appendChild(app.xrButton.domElement);
 
+// Set up the source for skybox
 app.scene.addNode(new SkyboxNode({
   url: 'assets/media/sample/rico_test.jpg'
 }));

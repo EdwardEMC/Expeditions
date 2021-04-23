@@ -1,7 +1,14 @@
+const exit = document.getElementById("exit");
 const upload = document.getElementById("upload");
 const vrSource = document.getElementById("vr_source");
 const share = document.getElementById("share_code");
-const saved_timer = JSON.parse(localStorage.getItem("Guide")); //saved timer name which doubles as the share code
+const saved_guide = JSON.parse(localStorage.getItem("Guide")); //saved guide which doubles as the share code
+
+//exit back to the landing page and emit to connected sockets
+exit.addEventListener("click", () => {
+  socket.emit("exit");
+  location.href = "/";
+});
 
 upload.addEventListener('change', e => {
   openFile(e);
@@ -33,5 +40,6 @@ function sendFile(bytes) {
 
 //load any previously saved tasks
 window.onload = () => {
-  share.innerHTML = saved_timer.room; //display the share code for other group members to join
+  $("#current_guide").html(saved_guide.peer);
+  share.innerHTML = saved_guide.room; //display the share code for other group members to join
 };

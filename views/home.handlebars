@@ -1,20 +1,22 @@
-<h1>Home</h1>
+<div style="text-align: center;">
+  <h1>Home</h1>
 
-{{!-- Main buttons for creating or joining an expedition --}}
-<div id="landing">
-  <input id="guide_name" type="text" placeholder="Guide name">
-  <button id="create_guide">Create Guide</button>
-  <br>
-  <br>
-  <button id="join_guide">Join Guide</button>   
-</div>
+  {{!-- Main buttons for creating or joining an expedition --}}
+  <div id="landing">
+    <input id="guide_name" type="text" placeholder="Guide name">
+    <button id="create_guide">Create Guide</button>
+    <br>
+    <br>
+    <button id="join_guide">Join Guide</button>   
+  </div>
 
-{{!-- Hidden inputs until join button is clicked --}}
-<div id="code_input" style="display: none;">
-  <input id="peer_name" type="text" placeholder="Username">
-  <input id="link_code" type="text" placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX">
-  <button id="join">Join</button>
-  <button id="back">Back</button>
+  {{!-- Hidden inputs until join button is clicked --}}
+  <div id="code_input" style="display: none;">
+    <input id="peer_name" type="text" placeholder="Username">
+    <input id="link_code" type="text" placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX">
+    <button id="join">Join</button>
+    <button id="back">Back</button>
+  </div>
 </div>
 
 <script src="assets/js/home.js"></script>

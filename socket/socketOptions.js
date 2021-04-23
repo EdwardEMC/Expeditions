@@ -5,6 +5,7 @@ module.exports = io => {
   io.on("connection", socket => {
     let room = socket.handshake.query.room;
     let peer = socket.handshake.query.peer;
+    let isGuide = socket.handshake.query.isGuide;
 
     // Stops multiple sockets from connecting
     if(typeof room == "undefined") {
@@ -19,12 +20,17 @@ module.exports = io => {
     );
   
     if (!existingSocket) {
-      activeSockets.push({socket: socket.id});
+      activeSockets.push({
+        socket: socket.id, 
+        name: peer,
+        isGuide: isGuide
+      });
 
       // member that just logged on
       let data = {
         socket: socket.id,
-        name: peer
+        name: peer,
+        isGuide: isGuide
       }
 
       // emit updated user list to the room
@@ -50,7 +56,8 @@ module.exports = io => {
         online: activeSockets,
         leaving: {
           socket: socket.id,
-          name: peer
+          name: peer,
+          isGuide: isGuide
         }
       });
 
@@ -64,6 +71,11 @@ module.exports = io => {
     //send the base64 of an image onto the rest of the room
     socket.on('image', image => {
       socket.to(room).emit("image", image);
+    });
+
+    //returns all connected peers to the main menu
+    socket.on("exit", () => {
+      socket.to(room).emit("exit");
     });
   });
 };
