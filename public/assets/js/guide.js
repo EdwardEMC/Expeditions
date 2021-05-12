@@ -32,7 +32,9 @@ function openFile(e) {
         changeSkybox(dataURL);
     };
   })(file);
-  reader.readAsDataURL(file);
+  if(file instanceof Blob) {
+    reader.readAsDataURL(file);
+  }
 };
 
 //send the file to the connected sockets
