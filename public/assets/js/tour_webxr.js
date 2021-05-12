@@ -30,7 +30,7 @@ document.getElementById('vr_button').appendChild(app.xrButton.domElement);
 
 // Set up the source for skybox
 app.scene.addNode(new SkyboxNode({
-  url: 'assets/media/sample/field.jpg'
+  url: 'assets/media/images/field.jpg'
 }));
 
 // Start the XR application.
