@@ -1,4 +1,4 @@
-import {changeSkybox} from '/assets/webxr/webxr_basic.js';
+import {changeSkybox} from '/assets/js/tour_webxr.js';
 
 const exit = document.getElementById("exit");
 const upload = document.getElementById("upload");
@@ -28,7 +28,7 @@ function openFile(e) {
         let bytes = this.result.replace(/.*base64,/, '');
         console.log(bytes, "BYTES");
         sendFile(bytes);
-        //function from webxr_basics
+        //function from tour_webxr
         changeSkybox(dataURL);
     };
   })(file);

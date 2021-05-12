@@ -1,3 +1,9 @@
+body {
+    background-image: url("/assets/media/sample/landing.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #vr_source {
     display: none;
     width: 100px;
@@ -42,4 +48,17 @@
     position: absolute;
     top: 10px;
     left: 10px;
+}
+
+#guide_controls {
+    background-color: white;
+    border-radius: 15px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#upload {
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
