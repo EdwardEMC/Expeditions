@@ -1,4 +1,4 @@
-import {changeSkybox} from '/assets/webxr/tour_webxr.js';
+import {changeSkybox} from '/assets/js/tour_webxr.js';
 
 // Retrieve user data from local storage
 const guide = JSON.parse(localStorage.getItem("Guide"));
